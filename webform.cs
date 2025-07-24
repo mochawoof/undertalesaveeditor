@@ -22,5 +22,20 @@ namespace undertalesaveeditor
         {
             this.Text = webBrowser1.DocumentTitle;
         }
+
+        private void reloadButton_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Refresh();
+        }
+
+        private void forwardButton_Click(object sender, EventArgs e)
+        {
+            webBrowser1.GoForward();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            webBrowser1.GoBack();
+        }
     }
 }

@@ -53,16 +53,23 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
+            toolStripContainer1 = new ToolStripContainer();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
+            toolStripContainer1.ContentPanel.SuspendLayout();
+            toolStripContainer1.TopToolStripPanel.SuspendLayout();
+            toolStripContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
             // 
+            toolStrip1.AutoSize = false;
+            toolStrip1.Dock = DockStyle.None;
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.Items.AddRange(new ToolStripItem[] { newToolStripButton, openToolStripButton, saveToolStripButton, reloadToolStripButton, openFolderToolStripButton, toolStripSeparator1, helpToolStripButton, searchButton, searchBox, toolStripSplitButton1 });
-            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(684, 25);
+            toolStrip1.Size = new Size(147, 25);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -112,7 +119,7 @@
             openFolderToolStripButton.Image = (Image)resources.GetObject("openFolderToolStripButton.Image");
             openFolderToolStripButton.ImageTransparentColor = Color.Magenta;
             openFolderToolStripButton.Name = "openFolderToolStripButton";
-            openFolderToolStripButton.Size = new Size(76, 22);
+            openFolderToolStripButton.Size = new Size(76, 19);
             openFolderToolStripButton.Text = "Open Folder";
             openFolderToolStripButton.Click += openFolderToolStripButton_Click;
             // 
@@ -127,7 +134,7 @@
             helpToolStripButton.Image = (Image)resources.GetObject("helpToolStripButton.Image");
             helpToolStripButton.ImageTransparentColor = Color.Magenta;
             helpToolStripButton.Name = "helpToolStripButton";
-            helpToolStripButton.Size = new Size(23, 22);
+            helpToolStripButton.Size = new Size(23, 20);
             helpToolStripButton.Text = "He&lp";
             helpToolStripButton.Click += helpToolStripButton_Click;
             // 
@@ -138,7 +145,7 @@
             searchButton.Image = (Image)resources.GetObject("searchButton.Image");
             searchButton.ImageTransparentColor = Color.Magenta;
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(46, 22);
+            searchButton.Size = new Size(46, 19);
             searchButton.Text = "Search";
             searchButton.Click += searchButton_Click;
             // 
@@ -146,7 +153,7 @@
             // 
             searchBox.Alignment = ToolStripItemAlignment.Right;
             searchBox.Name = "searchBox";
-            searchBox.Size = new Size(300, 25);
+            searchBox.Size = new Size(300, 23);
             searchBox.Text = "Name";
             searchBox.Enter += searchBox_Enter;
             searchBox.Leave += searchBox_Leave;
@@ -158,7 +165,7 @@
             toolStripSplitButton1.Image = (Image)resources.GetObject("toolStripSplitButton1.Image");
             toolStripSplitButton1.ImageTransparentColor = Color.Magenta;
             toolStripSplitButton1.Name = "toolStripSplitButton1";
-            toolStripSplitButton1.Size = new Size(75, 22);
+            toolStripSplitButton1.Size = new Size(75, 19);
             toolStripSplitButton1.Text = "Reference";
             // 
             // roomsToolStripMenuItem
@@ -229,9 +236,9 @@
             panel1.AutoScroll = true;
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 25);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(684, 425);
+            panel1.Size = new Size(784, 436);
             panel1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -245,7 +252,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(684, 0);
+            tableLayoutPanel1.Size = new Size(784, 0);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // openFileDialog1
@@ -256,24 +263,45 @@
             // 
             saveFileDialog1.FileName = "file0";
             // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            toolStripContainer1.ContentPanel.Controls.Add(panel1);
+            toolStripContainer1.ContentPanel.Size = new Size(784, 436);
+            toolStripContainer1.Dock = DockStyle.Fill;
+            toolStripContainer1.Location = new Point(0, 0);
+            toolStripContainer1.Name = "toolStripContainer1";
+            toolStripContainer1.Size = new Size(784, 461);
+            toolStripContainer1.TabIndex = 4;
+            toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 450);
-            Controls.Add(panel1);
-            Controls.Add(toolStrip1);
+            ClientSize = new Size(784, 461);
+            Controls.Add(toolStripContainer1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "New - Undertale Save Editor";
             ResizeBegin += Form1_ResizeBegin;
             ResizeEnd += Form1_ResizeEnd;
+            SizeChanged += Form1_SizeChanged;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            toolStripContainer1.ContentPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.ResumeLayout(false);
+            toolStripContainer1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -301,5 +329,6 @@
         private ToolStripMenuItem debugModeToolStripMenuItem;
         private ToolStripButton openFolderToolStripButton;
         private ToolStripButton reloadToolStripButton;
+        private ToolStripContainer toolStripContainer1;
     }
 }

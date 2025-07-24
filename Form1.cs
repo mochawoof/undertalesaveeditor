@@ -1136,6 +1136,7 @@ namespace undertalesaveeditor
             }
 
             tableLayoutPanel1.ResumeLayout();
+            Form1_SizeChanged(null, null);
 
             loadNormalLocation();
         }
@@ -1179,7 +1180,8 @@ namespace undertalesaveeditor
                     this.Text = Path.GetFullPath(file) + " - " + "Undertale Save Editor";
                     openFile = file;
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
                 loadDefault();
@@ -1213,6 +1215,11 @@ namespace undertalesaveeditor
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             tableLayoutPanel1.ResumeLayout();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            toolStrip1.Size = new Size(this.Width, toolStrip1.Height);
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)
@@ -1272,7 +1279,7 @@ namespace undertalesaveeditor
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Undertale Save Editor v1.0\nEverything sourced from https://tomat.dev/undertale.", "About Undertale Save Editor");
+            MessageBox.Show("Undertale Save Editor v" + System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString() + "\nEverything sourced from https://tomat.dev/undertale.", "About Undertale Save Editor");
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -1360,7 +1367,8 @@ namespace undertalesaveeditor
             try
             {
                 Process.Start("explorer", Path.GetDirectoryName(Path.GetFullPath(openFile)));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
