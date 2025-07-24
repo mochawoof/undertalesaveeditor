@@ -1136,7 +1136,6 @@ namespace undertalesaveeditor
             }
 
             tableLayoutPanel1.ResumeLayout();
-            Form1_SizeChanged(null, null);
 
             loadNormalLocation();
         }
@@ -1215,11 +1214,6 @@ namespace undertalesaveeditor
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             tableLayoutPanel1.ResumeLayout();
-        }
-
-        private void Form1_SizeChanged(object sender, EventArgs e)
-        {
-            toolStrip1.Size = new Size(this.Width, toolStrip1.Height);
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)

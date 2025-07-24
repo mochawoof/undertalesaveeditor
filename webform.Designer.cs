@@ -30,21 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(webform));
             webBrowser1 = new WebBrowser();
-            toolStripContainer1 = new ToolStripContainer();
             toolStrip1 = new ToolStrip();
             backButton = new ToolStripButton();
             reloadButton = new ToolStripButton();
             forwardButton = new ToolStripButton();
-            toolStripContainer1.ContentPanel.SuspendLayout();
-            toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            toolStripContainer1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // webBrowser1
             // 
             webBrowser1.Dock = DockStyle.Fill;
-            webBrowser1.Location = new Point(0, 0);
+            webBrowser1.Location = new Point(0, 25);
             webBrowser1.Name = "webBrowser1";
             webBrowser1.ScriptErrorsSuppressed = true;
             webBrowser1.Size = new Size(800, 425);
@@ -52,32 +48,12 @@
             webBrowser1.Url = new Uri("about:blank", UriKind.Absolute);
             webBrowser1.DocumentCompleted += webBrowser1_DocumentCompleted;
             // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            toolStripContainer1.ContentPanel.Controls.Add(webBrowser1);
-            toolStripContainer1.ContentPanel.Size = new Size(800, 425);
-            toolStripContainer1.Dock = DockStyle.Fill;
-            toolStripContainer1.Location = new Point(0, 0);
-            toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new Size(800, 450);
-            toolStripContainer1.TabIndex = 1;
-            toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
-            // 
             // toolStrip1
             // 
-            toolStrip1.Dock = DockStyle.None;
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.Items.AddRange(new ToolStripItem[] { backButton, reloadButton, forwardButton });
-            toolStrip1.Location = new Point(3, 0);
+            toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(171, 25);
+            toolStrip1.Size = new Size(800, 25);
             toolStrip1.TabIndex = 0;
             // 
             // backButton
@@ -115,23 +91,19 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(toolStripContainer1);
+            Controls.Add(webBrowser1);
+            Controls.Add(toolStrip1);
             Name = "webform";
             Text = "webform";
-            toolStripContainer1.ContentPanel.ResumeLayout(false);
-            toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            toolStripContainer1.TopToolStripPanel.PerformLayout();
-            toolStripContainer1.ResumeLayout(false);
-            toolStripContainer1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         public WebBrowser webBrowser1;
-        private ToolStripContainer toolStripContainer1;
         private ToolStrip toolStrip1;
         private ToolStripButton backButton;
         private ToolStripButton reloadButton;
